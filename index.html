@@ -200,6 +200,37 @@ nav{
 .essence{
   display:grid;grid-template-columns:1fr 1fr;
   min-height:60vh;background:#3a0f1a;
+  position:relative;
+  overflow:hidden;
+}
+  .floating-petals{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
+
+.petal{
+  position:absolute;
+  width:28px;
+  height:16px;
+  background:radial-gradient(circle at 30% 30%, #ffd8dd, #c77c8b);
+  border-radius:70% 30% 70% 30%;
+  opacity:0;
+  animation:petalFloat 8s ease-in-out infinite;
+}
+
+.petal:nth-child(1){left:62%;top:78%;animation-delay:.2s}
+.petal:nth-child(2){left:74%;top:68%;animation-delay:1.4s;transform:scale(.7)}
+.petal:nth-child(3){left:86%;top:82%;animation-delay:2.2s;transform:scale(1.2)}
+.petal:nth-child(4){left:58%;top:55%;animation-delay:3s;transform:scale(.9)}
+.petal:nth-child(5){left:91%;top:48%;animation-delay:4.2s;transform:scale(.65)}
+
+@keyframes petalFloat{
+  0%{opacity:0;transform:translateY(40px) translateX(0) rotate(0deg)}
+  20%{opacity:.75}
+  70%{opacity:.55}
+  100%{opacity:0;transform:translateY(-160px) translateX(-70px) rotate(160deg)}
 }
 .essence-text{
   padding:80px 56px;
